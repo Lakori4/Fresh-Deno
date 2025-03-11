@@ -1,0 +1,20 @@
+.characterContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  h1 {
+    color: gray;
+    background-color: #86efac;
+  }
+}
+
+
+.characterCard {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  img {
+    border-radius: 15%;
+  }
+}
