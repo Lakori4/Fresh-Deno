@@ -18,9 +18,11 @@ export const handler: Handlers = {
   GET: async (_req: Request, ctx: FreshContext<unknown, Data>) => {
     const url = "https://rickandmortyapi.com/api/character/";
     try {
-      const response = await Axios.get<Data>(url);
-      //console.log(response.data.results)
-      return (ctx.render({ results: response.data.results }));
+      const json = await fetch(url);
+      const response = await json.json()
+
+      return (ctx.render({ results: response.results }));
+      
     } catch (e) {
       return new Response("Error de API: " + e);
     }
