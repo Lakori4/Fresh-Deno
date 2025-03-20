@@ -1,6 +1,6 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts"
 import Axios from "axios"
-import {Character} from "../../components/Character.tsx";
+import {Character} from "../../components/CharacterContainer.tsx";
 
 /*
 
@@ -20,6 +20,7 @@ type CharacterAPI = {
 type EpisodeAPI = {
     id: string,
     name: string,
+    url:string,
 }
 
 
@@ -37,30 +38,21 @@ type Data = {
 export const handler: Handlers = {
     GET: async (_req: Request, ctx: FreshContext <unknown, Data>) => {
         const {id} = ctx.params;
-        console.log(id)
+        const url = `https://rickandmortyapi.com/api/character/${id}`;
         try {
-            const character = await Axios.get<CharacterAPI>(`https://rickandmortyapi.com/api/character/${id}`, );
+            const response = await Axios.get<CharacterAPI>(url);
+            const episodes = (await Promise.all(response.data.episode.map(
+                async (ep) => await Axios.get<EpisodeAPI>(ep)
+            ))).map(e => e.data);
+
+
+            const character: Data = {
+                ...response.data,
+                origin:  response.data.origin.name,
+                episodes                    
+            };
             
-            const episodesURL = character.data.episode;
-            console.log(character.data);
-
-            const episodes: EpisodeAPI[] = await Promise.all(
-                episodesURL.map(async (url) => {
-                const ep = await Axios.get<EpisodeAPI>(url);
-                return ep.data;
-            }),);
-            
-
-
-            return ctx.render({
-                name: character.data.name,
-                type: character.data.type,
-                origin: character.data.origin.name,
-                image: character.data.image,
-                gender: character.data.gender,
-                status: character.data.status,
-                episodes,
-            });
+            return ctx.render((character));
 
         } catch (e) {
             return new Response("Error: " + e)
@@ -70,11 +62,9 @@ export const handler: Handlers = {
 
 
 const Page = (props: PageProps <Data>) => {
-    { console.log("Page"); }
     return (
     <div>
     <Character character={props.data}/> 
-    <p>buenas</p>
     </div>
     )
 }

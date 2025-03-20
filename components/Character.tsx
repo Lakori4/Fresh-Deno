@@ -1,57 +1,19 @@
-import {FunctionalComponent } from "preact/src/index.d.ts";
-
+import { FunctionalComponent } from "preact/src/index.d.ts";
 
 type Props = {
-    character: {
+    image: string;
     name: string,
     status: string,
-    type: string,
-    gender: string,
-    origin: string,
-    image: string,
-    episodes: Array <{ id: string, name:string}>
-    };
-};
+}
 
-
-
-export const Character: FunctionalComponent<Props>  = (props) => {
-
-    const character = props.character;
-
-    return (
-        <div class="characterContainer">
-            
-            <h1>{character.name}</h1>
-
-
-            <div class = "characterCard">
-            
-                <img src={character.image} alt="" />
-
-                <div>
-                    <div><strong>Name:</strong> {character.name} </div>
-                
-                    <div><strong>Status: </strong> {character.status} </div>
-                
-                    <div><strong>Type: </strong>{character.type} </div>
-                
-                    <div><strong>Origin: </strong>{character.origin} </div>
-                
-                    <div><strong>Gender: </strong>{character.gender} </div>
-                            
-                </div>
-            </div>
-
-            <div>
-                <h2>Episodios</h2>
-                {character.episodes.map((ep) => (
-                  <div key={ep.id}>Ep. {ep.id}: {ep.name}</div>
-                ))}
-
-            </div> 
+const Character: FunctionalComponent<Props> = (props) => {
+    return(
+        <div>
+            <h2>{props.name}</h2>
+            <img src={props.image} alt={props.name} />
+            <p><strong>Status:</strong>{props.status}</p>
         </div>
-    );
-};
+    )
+}
 
-export default Character;
+export default Character
