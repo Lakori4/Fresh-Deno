@@ -4,10 +4,14 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $_layout from "./routes/_layout.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $saludar from "./routes/saludar.tsx";
+import * as $test_layout from "./routes/test/_layout.tsx";
+import * as $test_page1 from "./routes/test/page1.tsx";
+import * as $test_page2 from "./routes/test/page2.tsx";
 
 import type { Manifest } from "$fresh/server.ts";
 
@@ -15,10 +19,14 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/_layout.tsx": $_layout,
     "./routes/api/joke.ts": $api_joke,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/saludar.tsx": $saludar,
+    "./routes/test/_layout.tsx": $test_layout,
+    "./routes/test/page1.tsx": $test_page1,
+    "./routes/test/page2.tsx": $test_page2,
   },
   islands: {},
   baseUrl: import.meta.url,

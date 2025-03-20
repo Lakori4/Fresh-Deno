@@ -1,5 +1,5 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import Axios from "axios";
+import Button from "../components/Button.tsx";
 import Character from "../components/Character.tsx";
 
 
@@ -44,4 +44,18 @@ const Page = (props: PageProps<Data>) => {
   )
 }
 
-export default Page;
+
+const B1 = () => {
+  return (
+    <div>
+      <h1>Buttons</h1>
+
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+
+    </div>
+  )
+}
+
+export default B1;
+ 
