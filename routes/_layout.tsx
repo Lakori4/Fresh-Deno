@@ -4,7 +4,7 @@ const Layout = (props: PageProps) => {
   const Component = props.Component;
   return(
     <div>
-      <h1>Soy la primera página</h1>
+      <div class="header"> <a href="./"><h1>DenoFresh projects</h1></a></div>
       <Component/>
     </div>
   )
