@@ -26,7 +26,6 @@
 
 a {
   text-decoration:underline;
-  color: ;
 }
 
 button {
@@ -66,4 +65,30 @@ button.secondary:hover {
 button.secondary:active {
   background-color: white;
   color: blue;
+}
+
+.characterThumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  img{
+      border-radius: 50%;
+      width: 175px;
+      height: 175px;
+  }
+  div{
+      font-weight: bold;
+  }
+}
+
+.charactersGrid{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
 }

@@ -1,12 +1,8 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import Character from "../components/Character.tsx";
+import CharactersGrid from "../components/CharactersGrid.tsx";
+import { Character } from "../utils/types.ts";
 
-type Character = {
-  id: string;
-  name: string;
-  image: string;
-  status: string,
-};
+
 
 type Data = {
   results: Character[];
@@ -29,15 +25,14 @@ export const handler: Handlers = {
 
 export default (props: PageProps<Data>) => {
   const characters = props.data.results
-  //console.log(characters.map(e => e.status))
+  //console.log(characters)
   return (
     <div>
       <h1>Rick and Morty Characters</h1>
-      
-      {characters.map(e => (
-       <Character name={e.name} image={e.image} status={e.status} />
+    
+       <CharactersGrid chars={characters} />
         
-      ))}
+      
     </div>
   )
 }

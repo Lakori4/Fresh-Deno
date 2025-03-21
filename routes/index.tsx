@@ -6,6 +6,7 @@ const Home = () => {
       <h2><a href="./characters">Rick & Morty API</a></h2>
       <h2><a href="./saludar">Greet</a></h2>
       <h2><a href="./button">Buttons</a></h2>
+      {/* <h2><a href="./greet">Dynamic Route</a></h2> */}
     </div>
   )
 }
