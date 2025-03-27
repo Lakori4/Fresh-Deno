@@ -1,6 +1,6 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import CharactersGrid from "../components/CharactersGrid.tsx";
-import { Character } from "../utils/types.ts";
+import CharactersGrid from "../../components/CharactersGrid.tsx";
+import { Character } from "../../utils/types.ts";
 
 
 
@@ -28,7 +28,7 @@ export default (props: PageProps<Data>) => {
   //console.log(characters)
   return (
     <div>
-      <h1>Rick and Morty Characters</h1>
+      <h1 style="text-align: center;">Rick and Morty Characters</h1>
     
        <CharactersGrid chars={characters} />
         

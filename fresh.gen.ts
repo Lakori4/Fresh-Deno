@@ -2,13 +2,14 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $Rick_Morty_characters from "./routes/Rick&Morty/characters.tsx";
+import * as $Rick_Morty_characters_id_ from "./routes/Rick&Morty/characters/[id].tsx";
+import * as $Rick_Morty_episode_id_ from "./routes/Rick&Morty/episode/[id].tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
 import * as $button from "./routes/button.tsx";
-import * as $characters from "./routes/characters.tsx";
-import * as $characters_id_ from "./routes/characters/[id].tsx";
+import * as $contacts from "./routes/contacts.tsx";
 import * as $greet from "./routes/greet.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
@@ -21,13 +22,14 @@ import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/Rick&Morty/characters.tsx": $Rick_Morty_characters,
+    "./routes/Rick&Morty/characters/[id].tsx": $Rick_Morty_characters_id_,
+    "./routes/Rick&Morty/episode/[id].tsx": $Rick_Morty_episode_id_,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
-    "./routes/api/joke.ts": $api_joke,
     "./routes/button.tsx": $button,
-    "./routes/characters.tsx": $characters,
-    "./routes/characters/[id].tsx": $characters_id_,
+    "./routes/contacts.tsx": $contacts,
     "./routes/greet.tsx": $greet,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
