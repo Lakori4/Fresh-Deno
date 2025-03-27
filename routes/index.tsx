@@ -6,7 +6,7 @@ const Home = () => {
   if (!env) {
     throw console.error(".env IS NOT readed"); 
   } else {
-    console.log(".env IS readed")
+    console.log(".env IS readed and is " + env)
   }
   return (
     <div>
