@@ -10,6 +10,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $button from "./routes/button.tsx";
 import * as $contacts from "./routes/contacts.tsx";
+import * as $form from "./routes/form.tsx";
 import * as $greet from "./routes/greet.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
@@ -17,7 +18,7 @@ import * as $saludar from "./routes/saludar.tsx";
 import * as $test_layout from "./routes/test/_layout.tsx";
 import * as $test_page1 from "./routes/test/page1.tsx";
 import * as $test_page2 from "./routes/test/page2.tsx";
-
+import * as $Formulario from "./islands/Formulario.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -30,6 +31,7 @@ const manifest = {
     "./routes/_layout.tsx": $_layout,
     "./routes/button.tsx": $button,
     "./routes/contacts.tsx": $contacts,
+    "./routes/form.tsx": $form,
     "./routes/greet.tsx": $greet,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
@@ -38,7 +40,9 @@ const manifest = {
     "./routes/test/page1.tsx": $test_page1,
     "./routes/test/page2.tsx": $test_page2,
   },
-  islands: {},
+  islands: {
+    "./islands/Formulario.tsx": $Formulario,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
