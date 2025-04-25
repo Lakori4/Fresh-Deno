@@ -9,6 +9,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $button from "./routes/button.tsx";
+import * as $client_ricky from "./routes/client-ricky.tsx";
 import * as $contacts from "./routes/contacts.tsx";
 import * as $form from "./routes/form.tsx";
 import * as $greet from "./routes/greet.tsx";
@@ -19,6 +20,7 @@ import * as $test_layout from "./routes/test/_layout.tsx";
 import * as $test_page1 from "./routes/test/page1.tsx";
 import * as $test_page2 from "./routes/test/page2.tsx";
 import * as $Formulario from "./islands/Formulario.tsx";
+import * as $RickyList from "./islands/RickyList.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -30,6 +32,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
     "./routes/button.tsx": $button,
+    "./routes/client-ricky.tsx": $client_ricky,
     "./routes/contacts.tsx": $contacts,
     "./routes/form.tsx": $form,
     "./routes/greet.tsx": $greet,
@@ -42,6 +45,7 @@ const manifest = {
   },
   islands: {
     "./islands/Formulario.tsx": $Formulario,
+    "./islands/RickyList.tsx": $RickyList,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
