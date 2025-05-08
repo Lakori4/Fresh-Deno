@@ -1,5 +1,6 @@
 body {
   background-color: #222222;
+  
   color: white;
 }
 
@@ -31,7 +32,9 @@ body {
 }
 
 a {
-  text-decoration:underline;
+  text-decoration: none;
+  font-family: 'Fira Code', 'Courier New', monospace;
+
 }
 
 button {
