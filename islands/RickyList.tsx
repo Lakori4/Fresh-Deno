@@ -35,8 +35,11 @@ const RickyList: FunctionalComponent = () => {
 
 
   useEffect(() => {
-    if (timeout) clearTimeout(timeout.current)
-    timeout.current= setTimeout(getCharacter, 250)
+    if (timeout) {
+      clearTimeout(timeout.current)
+      timeout.current = setTimeout(getCharacter, 250)
+      setPage(1);
+    }
   }, [search]);
 
   return (
