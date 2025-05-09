@@ -9,11 +9,10 @@ const RickyList: FunctionalComponent = () => {
   const timeout = useRef<any> (undefined)
 
   const getCharacter = async () => {
+
     const json = await fetch (`https://rickandmortyapi.com/api/character?name=${search}&page=${page}`);
-    const data = await json.json()
-    console.log("characters");
+    const data = await json.json()    
     setCharacters(data.results.map((e) => e.name))
-    
   }
 
 
@@ -31,19 +30,16 @@ const RickyList: FunctionalComponent = () => {
 
   useEffect(() => {
     getCharacter();
-  }, [search, page])  
+  }, [page])  
 
 
   useEffect(() => {
     if (timeout) clearTimeout(timeout.current)
-    timeout.current= setTimeout(getCharacter, 1000)
+    timeout.current= setTimeout(getCharacter, 250)
   }, [search]);
 
   return (
     <div>
-
-
-      
       <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/>
       <br />
       <button type="button" onClick={pgDn}>Down page</button>
