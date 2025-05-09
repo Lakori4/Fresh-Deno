@@ -10,13 +10,13 @@ const Formulario: FunctionalComponent = () => {
   const [error, setError] = useState<boolean>(false);
 
   
-  const handleClick = (e : Event) => {
+  const handleClick = () => {
     if (input.length != 9) {
       setError(true);
     }
   }
 
-  const handleInput = (e) => {
+  const handleInput = (e: any) => {
     setInput(e.currentTarget.value)
     setError(false)
   }
