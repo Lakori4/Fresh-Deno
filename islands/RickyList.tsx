@@ -30,6 +30,7 @@ const RickyList: FunctionalComponent = () => {
 
   useEffect(() => {
     getCharacter();
+    
   }, [page])  
 
 
