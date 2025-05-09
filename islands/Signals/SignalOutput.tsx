@@ -2,7 +2,7 @@ import { FunctionComponent } from "preact/src/index.d.ts";
 import { mySignal } from "../../utils/signals.ts"
 
 
-const SignalIslandOne: FunctionComponent = ()  => {
+const SignalOutput: FunctionComponent = ()  => {
   return(
 
     <div>
@@ -11,4 +11,4 @@ const SignalIslandOne: FunctionComponent = ()  => {
   )
 }
 
-export default SignalIslandOne;
+export default SignalOutput;

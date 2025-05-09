@@ -1,11 +1,11 @@
-import  SignalIslandOne  from "../islands/Signals/SignalIslandOne.tsx" 
-import  SignalIslandTwo from "../islands/Signals/SignalIslandTwo.tsx" 
+import  SignalOutput  from "../islands/Signals/SignalOutput.tsx" 
+import  SignalInput from "../islands/Signals/SignalInput.tsx" 
 
 
 const Page = () => {
   return (
     <div>
-      <SignalIslandOne/> <SignalIslandTwo/>
+      <SignalOutput/> <SignalInput/>
     </div>
   )
 }

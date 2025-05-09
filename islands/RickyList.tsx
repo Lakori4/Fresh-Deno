@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { FunctionalComponent } from "preact/src/index.d.ts";
+import { Character } from "../utils/types.ts";
 
 const RickyList: FunctionalComponent = () => {
 
-  const [characters, setCharacters] = useState<string[]>([("")])
+  const [names, setNames] = useState<string[]>([("")])
   //const [search, setSearch] = useState<string>("")
   const [page, setPage] = useState<number>(1)
   const timeout = useRef<any> (undefined)
@@ -15,7 +16,7 @@ const RickyList: FunctionalComponent = () => {
 
     const json = await fetch (`https://rickandmortyapi.com/api/character?name=${searchRef.current}&page=${page}`);
     const data = await json.json()    
-    setCharacters(data.results.map((e) => e.name))
+    setNames(data.results.map((e : Character) => e.name))
   }
 
 
@@ -54,7 +55,7 @@ const RickyList: FunctionalComponent = () => {
       <button type="button" onClick={pgDn}>Down page</button>
       <button type="button" onClick={pgUp}>Next page</button>
       <ul>
-        {characters?.map(e => <li>{e}</li>)}  
+        {names?.map(e => <li key={e}>{e}</li>)}  
       </ul>
     </div>
   )

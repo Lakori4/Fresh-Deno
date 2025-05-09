@@ -26,8 +26,8 @@ import * as $RickyList from "./islands/RickyList.tsx";
 import * as $Signals_ricky_Buscador from "./islands/Signals-ricky/Buscador.tsx";
 import * as $Signals_ricky_Paginador from "./islands/Signals-ricky/Paginador.tsx";
 import * as $Signals_ricky_Resultados from "./islands/Signals-ricky/Resultados.tsx";
-import * as $Signals_SignalIslandOne from "./islands/Signals/SignalIslandOne.tsx";
-import * as $Signals_SignalIslandTwo from "./islands/Signals/SignalIslandTwo.tsx";
+import * as $Signals_SignalInput from "./islands/Signals/SignalInput.tsx";
+import * as $Signals_SignalOutput from "./islands/Signals/SignalOutput.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -58,8 +58,8 @@ const manifest = {
     "./islands/Signals-ricky/Buscador.tsx": $Signals_ricky_Buscador,
     "./islands/Signals-ricky/Paginador.tsx": $Signals_ricky_Paginador,
     "./islands/Signals-ricky/Resultados.tsx": $Signals_ricky_Resultados,
-    "./islands/Signals/SignalIslandOne.tsx": $Signals_SignalIslandOne,
-    "./islands/Signals/SignalIslandTwo.tsx": $Signals_SignalIslandTwo,
+    "./islands/Signals/SignalInput.tsx": $Signals_SignalInput,
+    "./islands/Signals/SignalOutput.tsx": $Signals_SignalOutput,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
