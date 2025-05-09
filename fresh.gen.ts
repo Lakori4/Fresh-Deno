@@ -16,11 +16,18 @@ import * as $greet from "./routes/greet.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $saludar from "./routes/saludar.tsx";
+import * as $signals_ricky from "./routes/signals-ricky.tsx";
+import * as $signals from "./routes/signals.tsx";
 import * as $test_layout from "./routes/test/_layout.tsx";
 import * as $test_page1 from "./routes/test/page1.tsx";
 import * as $test_page2 from "./routes/test/page2.tsx";
 import * as $Formulario from "./islands/Formulario.tsx";
 import * as $RickyList from "./islands/RickyList.tsx";
+import * as $Signals_ricky_Buscador from "./islands/Signals-ricky/Buscador.tsx";
+import * as $Signals_ricky_Paginador from "./islands/Signals-ricky/Paginador.tsx";
+import * as $Signals_ricky_Resultados from "./islands/Signals-ricky/Resultados.tsx";
+import * as $Signals_SignalIslandOne from "./islands/Signals/SignalIslandOne.tsx";
+import * as $Signals_SignalIslandTwo from "./islands/Signals/SignalIslandTwo.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -39,6 +46,8 @@ const manifest = {
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
     "./routes/saludar.tsx": $saludar,
+    "./routes/signals-ricky.tsx": $signals_ricky,
+    "./routes/signals.tsx": $signals,
     "./routes/test/_layout.tsx": $test_layout,
     "./routes/test/page1.tsx": $test_page1,
     "./routes/test/page2.tsx": $test_page2,
@@ -46,6 +55,11 @@ const manifest = {
   islands: {
     "./islands/Formulario.tsx": $Formulario,
     "./islands/RickyList.tsx": $RickyList,
+    "./islands/Signals-ricky/Buscador.tsx": $Signals_ricky_Buscador,
+    "./islands/Signals-ricky/Paginador.tsx": $Signals_ricky_Paginador,
+    "./islands/Signals-ricky/Resultados.tsx": $Signals_ricky_Resultados,
+    "./islands/Signals/SignalIslandOne.tsx": $Signals_SignalIslandOne,
+    "./islands/Signals/SignalIslandTwo.tsx": $Signals_SignalIslandTwo,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

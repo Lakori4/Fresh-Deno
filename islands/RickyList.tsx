@@ -4,13 +4,16 @@ import { FunctionalComponent } from "preact/src/index.d.ts";
 const RickyList: FunctionalComponent = () => {
 
   const [characters, setCharacters] = useState<string[]>([("")])
-  const [search, setSearch] = useState<string>("")
+  //const [search, setSearch] = useState<string>("")
   const [page, setPage] = useState<number>(1)
   const timeout = useRef<any> (undefined)
 
+  const searchRef = useRef<string>("")
+
+
   const getCharacter = async () => {
 
-    const json = await fetch (`https://rickandmortyapi.com/api/character?name=${search}&page=${page}`);
+    const json = await fetch (`https://rickandmortyapi.com/api/character?name=${searchRef.current}&page=${page}`);
     const data = await json.json()    
     setCharacters(data.results.map((e) => e.name))
   }
@@ -40,11 +43,13 @@ const RickyList: FunctionalComponent = () => {
       timeout.current = setTimeout(getCharacter, 250)
       setPage(1);
     }
-  }, [search]);
+  }, [searchRef.current]);
 
   return (
     <div>
-      <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/>
+     {/*  <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/> */}
+      <input type="text" name="nombre" placeholder="Nombre" value={searchRef.current} onInput={(e) => searchRef.current = (e.currentTarget.value)}/>
+
       <br />
       <button type="button" onClick={pgDn}>Down page</button>
       <button type="button" onClick={pgUp}>Next page</button>
