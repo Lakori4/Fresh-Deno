@@ -1,56 +1,25 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { FunctionalComponent } from "preact/src/index.d.ts";
 
 const RickyList: FunctionalComponent = () => {
 
-  const [characters, setCharacters] = useState<string[]>([("")])
-  const [search, setSearch] = useState<string>("")
-  const [page, setPage] = useState<number>(1)
-  const timeout = useRef<any> (undefined)
-
-  const getCharacter = async () => {
-    const json = await fetch (`https://rickandmortyapi.com/api/character?name=${search}&page=${page}`);
-    const data = await json.json()
-    console.log("characters");
-    setCharacters(data.results.map((e) => e.name))
-    
-    while (!characters && page >= 1) {
-      setPage(page - 1);
-    }
-  }
-
-
-  const pgUp = () => {
-    if (page && page < 42) {
-      setPage(page + 1)
-    }
-  }
-
-    const pgDn = () => {
-    if (page && page > 0) {
-      setPage(page - 1)
-    }
-  }
+  const [characters, setCharacters] = useState<string[]>()
+  const [search, setSearch] = useState<string>()
 
   useEffect(() => {
     getCharacter();
-  }, [page])  
+  }, [search])
 
-
-  useEffect(() => {
-    if (timeout) clearTimeout(timeout.current)
-    timeout.current= setTimeout(getCharacter, 250)
-  }, [search]);
+  const getCharacter = async () => {
+    const json = await fetch (`https://rickandmortyapi.com/api/character?name=${search}`);
+    const data = await json.json()
+    setCharacters(data.results.map((e) => e.name))
+    console.log(characters);
+  }
 
   return (
     <div>
-
-
-      
       <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/>
-      <br />
-      <button type="button" onClick={pgDn}>Down page</button>
-      <button type="button" onClick={pgUp}>Next page</button>
       <ul>
         {characters?.map(e => <li>{e}</li>)}  
       </ul>
