@@ -14,6 +14,9 @@ const RickyList: FunctionalComponent = () => {
     console.log("characters");
     setCharacters(data.results.map((e) => e.name))
     
+    while (!characters && page >= 1) {
+      setPage(page - 1);
+    }
   }
 
 
@@ -31,12 +34,12 @@ const RickyList: FunctionalComponent = () => {
 
   useEffect(() => {
     getCharacter();
-  }, [search, page])  
+  }, [page])  
 
 
   useEffect(() => {
     if (timeout) clearTimeout(timeout.current)
-    timeout.current= setTimeout(getCharacter, 1000)
+    timeout.current= setTimeout(getCharacter, 250)
   }, [search]);
 
   return (
