@@ -4,30 +4,37 @@ import { Character } from "../utils/types.ts";
 
 const RickyList: FunctionalComponent = () => {
 
-  const [names, setNames] = useState<string[]>([("")])
-  //const [search, setSearch] = useState<string>("")
+  const [names, setNames] = useState<string[]>([])
+  const [search, setSearch] = useState<string>("")
+  const [error, setError] = useState<boolean>(false)
   const [page, setPage] = useState<number>(1)
-  const timeout = useRef<any> (undefined)
-
-  const searchRef = useRef<string>("")
+  const [maxPages, setMaxPages] = useState<number>(1)
+  const timeout = useRef<number>(0)
 
 
   const getCharacter = async () => {
 
-    const json = await fetch (`https://rickandmortyapi.com/api/character?name=${searchRef.current}&page=${page}`);
-    const data = await json.json()    
-    setNames(data.results.map((e : Character) => e.name))
+    const response = await (await fetch (`https://rickandmortyapi.com/api/character?name=${search}&page=${page}`)).json();
+    
+
+    if (response.results) {  
+      setNames(response.results.map((e: Character) => e.name)); 
+      setError(false); 
+      setMaxPages (response.info.pages);
+    } else {
+      setError(true)
+    }
   }
 
 
   const pgUp = () => {
-    if (page && page < 42) {
+    if (page && page < maxPages) {
       setPage(page + 1)
     }
   }
 
-    const pgDn = () => {
-    if (page && page > 0) {
+  const pgDn = () => {
+    if (page && page > 1) {
       setPage(page - 1)
     }
   }
@@ -44,19 +51,19 @@ const RickyList: FunctionalComponent = () => {
       timeout.current = setTimeout(getCharacter, 250)
       setPage(1);
     }
-  }, [searchRef.current]);
+  }, [search]);
 
   return (
     <div>
      {/*  <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/> */}
-      <input type="text" name="nombre" placeholder="Nombre" value={searchRef.current} onInput={(e) => searchRef.current = (e.currentTarget.value)}/>
+      <input type="text" name="nombre" placeholder="Nombre" value={search} onInput={(e) => setSearch(e.currentTarget.value)}/>
 
-      <br />
-      <button type="button" onClick={pgDn}>Down page</button>
-      <button type="button" onClick={pgUp}>Next page</button>
-      <ul>
-        {names?.map(e => <li key={e}>{e}</li>)}  
-      </ul>
+      {error ? <p>No hay resultados para tu búsqueda</p> : <ul> {names.map(e => <li key={e}>{e}</li>)} </ul> }
+
+      <h3>Page {page} of {maxPages}</h3>
+      <button type="button" onClick={pgDn}>Previous</button>
+      <button type="button" onClick={pgUp}>Next</button>
+
     </div>
   )
 }
