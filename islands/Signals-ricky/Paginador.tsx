@@ -5,7 +5,8 @@ const Paginador: FunctionComponent = () => {
 
   const pgUp = () => {
     if (page && page.value < maxPages.value) {
-      page.value = page.value +1    }
+      page.value = page.value + 1
+    }
   }
 
     const pgDn = () => {
