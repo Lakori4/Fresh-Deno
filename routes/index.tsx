@@ -19,6 +19,7 @@ const Home = () => {
       <h2><a href="./client-ricky">Client-ricky</a></h2>
       <h2><a href="./signals-ricky">Signals-ricky</a></h2>
       <h2><a href="./signals">Signals</a></h2>
+      <h2><a href="./cookies">Cookies</a></h2>
 
 
 

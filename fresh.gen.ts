@@ -11,6 +11,7 @@ import * as $_layout from "./routes/_layout.tsx";
 import * as $button from "./routes/button.tsx";
 import * as $client_ricky from "./routes/client-ricky.tsx";
 import * as $contacts from "./routes/contacts.tsx";
+import * as $cookies from "./routes/cookies.tsx";
 import * as $form from "./routes/form.tsx";
 import * as $greet from "./routes/greet.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
@@ -41,6 +42,7 @@ const manifest = {
     "./routes/button.tsx": $button,
     "./routes/client-ricky.tsx": $client_ricky,
     "./routes/contacts.tsx": $contacts,
+    "./routes/cookies.tsx": $cookies,
     "./routes/form.tsx": $form,
     "./routes/greet.tsx": $greet,
     "./routes/greet/[name].tsx": $greet_name_,
