@@ -12,6 +12,8 @@ import * as $button from "./routes/button.tsx";
 import * as $client_ricky from "./routes/client-ricky.tsx";
 import * as $contacts from "./routes/contacts.tsx";
 import * as $cookies from "./routes/cookies.tsx";
+import * as $cookies_cookiesForm from "./routes/cookies/cookiesForm.tsx";
+import * as $cookies_ruta from "./routes/cookies/ruta.tsx";
 import * as $form from "./routes/form.tsx";
 import * as $greet from "./routes/greet.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
@@ -22,6 +24,7 @@ import * as $signals from "./routes/signals.tsx";
 import * as $test_layout from "./routes/test/_layout.tsx";
 import * as $test_page1 from "./routes/test/page1.tsx";
 import * as $test_page2 from "./routes/test/page2.tsx";
+import * as $Cookie from "./islands/Cookie.tsx";
 import * as $Formulario from "./islands/Formulario.tsx";
 import * as $RickyList from "./islands/RickyList.tsx";
 import * as $Signals_ricky_Buscador from "./islands/Signals-ricky/Buscador.tsx";
@@ -43,6 +46,8 @@ const manifest = {
     "./routes/client-ricky.tsx": $client_ricky,
     "./routes/contacts.tsx": $contacts,
     "./routes/cookies.tsx": $cookies,
+    "./routes/cookies/cookiesForm.tsx": $cookies_cookiesForm,
+    "./routes/cookies/ruta.tsx": $cookies_ruta,
     "./routes/form.tsx": $form,
     "./routes/greet.tsx": $greet,
     "./routes/greet/[name].tsx": $greet_name_,
@@ -55,6 +60,7 @@ const manifest = {
     "./routes/test/page2.tsx": $test_page2,
   },
   islands: {
+    "./islands/Cookie.tsx": $Cookie,
     "./islands/Formulario.tsx": $Formulario,
     "./islands/RickyList.tsx": $RickyList,
     "./islands/Signals-ricky/Buscador.tsx": $Signals_ricky_Buscador,
