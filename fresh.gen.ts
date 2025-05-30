@@ -2,6 +2,10 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $_app_middleware from "./routes/(app)/_middleware.ts";
+import * as $_app_characters from "./routes/(app)/characters.tsx";
+import * as $_app_spells from "./routes/(app)/spells.tsx";
+import * as $_auth_login from "./routes/(auth)/login.tsx";
 import * as $Rick_Morty_characters from "./routes/Rick&Morty/characters.tsx";
 import * as $Rick_Morty_characters_id_ from "./routes/Rick&Morty/characters/[id].tsx";
 import * as $Rick_Morty_episode_id_ from "./routes/Rick&Morty/episode/[id].tsx";
@@ -26,6 +30,7 @@ import * as $test_page1 from "./routes/test/page1.tsx";
 import * as $test_page2 from "./routes/test/page2.tsx";
 import * as $Cookie from "./islands/Cookie.tsx";
 import * as $Formulario from "./islands/Formulario.tsx";
+import * as $LoginFrom from "./islands/LoginFrom.tsx";
 import * as $RickyList from "./islands/RickyList.tsx";
 import * as $Signals_ricky_Buscador from "./islands/Signals-ricky/Buscador.tsx";
 import * as $Signals_ricky_Paginador from "./islands/Signals-ricky/Paginador.tsx";
@@ -36,6 +41,10 @@ import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/(app)/_middleware.ts": $_app_middleware,
+    "./routes/(app)/characters.tsx": $_app_characters,
+    "./routes/(app)/spells.tsx": $_app_spells,
+    "./routes/(auth)/login.tsx": $_auth_login,
     "./routes/Rick&Morty/characters.tsx": $Rick_Morty_characters,
     "./routes/Rick&Morty/characters/[id].tsx": $Rick_Morty_characters_id_,
     "./routes/Rick&Morty/episode/[id].tsx": $Rick_Morty_episode_id_,
@@ -62,6 +71,7 @@ const manifest = {
   islands: {
     "./islands/Cookie.tsx": $Cookie,
     "./islands/Formulario.tsx": $Formulario,
+    "./islands/LoginFrom.tsx": $LoginFrom,
     "./islands/RickyList.tsx": $RickyList,
     "./islands/Signals-ricky/Buscador.tsx": $Signals_ricky_Buscador,
     "./islands/Signals-ricky/Paginador.tsx": $Signals_ricky_Paginador,
